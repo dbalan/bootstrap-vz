@@ -18,7 +18,7 @@ def get_set_base(manifest):
                 bootstrap.Bootstrap,
                 workspace.DeleteWorkspace,
                 ]
-	if 'include_packges' in manifest.bootstrapper:
+	if 'include_packages' in manifest.bootstrapper:
 		base_set.append(bootstrap.IncludePackagesInBootstrap)
 	if 'exclude_packages' in manifest.bootstrapper:
 		base_set.append(bootstrap.ExcludePackagesInBootstrap)
