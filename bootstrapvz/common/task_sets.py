@@ -11,12 +11,20 @@ from tasks import apt
 from tasks import security
 from tasks import locale
 
-base_set = [workspace.CreateWorkspace,
-            bootstrap.AddRequiredCommands,
-            host.CheckExternalCommands,
-            bootstrap.Bootstrap,
-            workspace.DeleteWorkspace,
-            ]
+def get_set_base(manifest):
+	base_set = [workspace.CreateWorkspace,
+                bootstrap.AddRequiredCommands,
+                host.CheckExternalCommands,
+                bootstrap.Bootstrap,
+                workspace.DeleteWorkspace,
+                ]
+	if 'include_packges' in manifest.bootstrapper:
+		base_set.append(bootstrap.IncludePackagesInBootstrap)
+	if 'exclude_packages' in manifest.bootstrapper:
+		base_set.append(bootstrap.ExcludePackagesInBootstrap)
+
+	return base_set
+
 
 volume_set = [volume.Attach,
               volume.Detach,

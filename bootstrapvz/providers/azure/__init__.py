@@ -28,7 +28,7 @@ def validate_manifest(data, validator, error):
 
 def resolve_tasks(tasklist, manifest):
 	from bootstrapvz.common import task_sets
-	tasklist.update(task_sets.base_set)
+	tasklist.update(task_sets.get_set_base(manifest))
 	tasklist.update(task_sets.volume_set)
 	tasklist.update(task_sets.mounting_set)
 	tasklist.update(task_sets.get_apt_set(manifest))

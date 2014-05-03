@@ -52,7 +52,7 @@ def validate_manifest(data, validator, error):
 
 def resolve_tasks(taskset, manifest):
 	from bootstrapvz.common import task_sets
-	taskset.update(task_sets.base_set)
+	taskset.update(task_sets.get_set_base(manifest))
 	taskset.update(task_sets.mounting_set)
 	taskset.update(task_sets.get_apt_set(manifest))
 	taskset.update(task_sets.locale_set)
