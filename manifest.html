@@ -92,6 +92,14 @@ heading: The manifest file
 			<span class="optional label label-success"></span>
 		</li>
 		<li>
+			<tt>include_packages</tt>: Extra packages to be installed during bootstrap. Accepts a list of package names.
+			<span class="optional label label-success"></span>
+		</li>
+		<li>
+			<tt>exclude_packages</tt>: Packages to exclude during bootstrap phase, Accepts a list of package names.
+			<span class="optional label label-success"></span>
+		</li>
+		<li>
 			<tt>guest_additions</tt>: This setting is only relevant for the
 			<a href="providers.html#vbox">virtualbox provider</a>.
 			It specifies the path to the VirtualBox Guest Additions ISO, which, when specified, will be mounted and used
